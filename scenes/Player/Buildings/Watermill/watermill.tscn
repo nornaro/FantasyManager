@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://boga4pf7y1rq6"]
+
+[ext_resource type="ArrayMesh" uid="uid://ouy2va13s5a4" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/red/building_watermill_red.obj" id="1_kxrun"]
+[ext_resource type="Script" path="res://scenes/Player/Buildings/build.gd" id="1_ptogy"]
+[ext_resource type="ArrayMesh" uid="uid://dhv8y4j1bpmn0" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/red/building_watermill_red_building_watermill_wheel_red.obj" id="3_08n75"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7ioif"]
+points = PackedVector3Array(-0.187586, -0.163177, -0.382444, 0.434579, 0.832066, 0.886889, 0.409708, 0.832066, 0.886889, -0.49, -0.329501, 0.765111, -0.49, 1.1975, 0.47877, 0.440168, -0.329086, 0.764832, 0.50929, 0.782328, 0.0655994, 0.175, -0.316885, -0.346139, 0.0114789, 1.2055, 0.115423, -0.511103, 0.807275, 0.886889, -0.511103, -0.362444, 0.140273, -0.0879035, 0.434, -0.382444, -0.511103, 0.782328, 0.0655994, 0.49, 1.20033, 0.47961, 0.0109421, 1.17206, 0.787943, 0.434888, -0.319952, 0.169888, 0.111061, 0.409209, -0.382444, 0.50929, 0.807275, 0.886765, 0.185673, -0.163177, -0.382444, -0.175, -0.308749, -0.339656, -0.0132918, 1.2055, 0.115423, -0.112874, 0.409209, -0.382444, 0.0861906, 0.434, -0.382444, -0.474626, 1.1735, 0.425502, 0.50929, 0.75738, 0.83694, 0.472813, 1.1735, 0.425502, 0.50929, 0.75738, 0.0905735, -0.0127263, 1.17027, 0.786648, -0.47477, 0.826889, 0.0788894, 0.472957, 0.826889, 0.0788894, 0.434579, 0.807119, 0.886889)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1gaou"]
+size = Vector3(0.01, 0.01, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvom4"]
+albedo_color = Color(0.22076, 0.0690131, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8bikh"]
+material = SubResource("StandardMaterial3D_nvom4")
+height = 1.5
+
+[node name="Watermill" type="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_7ioif")
+disabled = true
+script = ExtResource("1_ptogy")
+
+[node name="bot" type="MeshInstance3D" parent="CollisionShape3D"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2, 0)
+mesh = ExtResource("1_kxrun")
+skeleton = NodePath("../../..")
+
+[node name="axis" type="MeshInstance3D" parent="CollisionShape3D"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2, 0)
+mesh = SubResource("BoxMesh_1gaou")
+skeleton = NodePath("../bot")
+
+[node name="wheel" type="MeshInstance3D" parent="CollisionShape3D/axis"]
+unique_name_in_owner = true
+transform = Transform3D(0.75, -3.50071e-23, 3.33786e-08, 0, 0.75, 6.85208e-16, -3.57628e-08, -7.34151e-16, 0.7, 1.20834e-08, 0, -0.0691087)
+mesh = ExtResource("3_08n75")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D/axis/wheel"]
+unique_name_in_owner = true
+transform = Transform3D(0.16, -7.10543e-15, -3.28358e-16, -3.1225e-22, -2.09815e-08, -0.16, 7.6294e-09, 0.480001, -6.99383e-09, 0, 0.25, 0)
+mesh = SubResource("CylinderMesh_8bikh")
+skeleton = NodePath("../../../bot")

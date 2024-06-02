@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://quqmh0d68omp"]
+
+[ext_resource type="Material" path="res://res/soil.tres" id="1_2yuja"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 289.123, 30, 135.312)
+layers = 0
+radius = 75.0
+radial_segments = 32
+material = ExtResource("1_2yuja")
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 310, 30, 100)
+layers = 0
+radius = 75.0
+radial_segments = 32
+material = ExtResource("1_2yuja")
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 350, 30, 130)
+layers = 0
+radius = 75.0
+radial_segments = 32
+material = ExtResource("1_2yuja")
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 400, 30, 90)
+layers = 0
+radius = 75.0
+radial_segments = 32
+material = ExtResource("1_2yuja")
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 351, 30, 90)
+layers = 0
+radius = 75.0
+radial_segments = 32
+material = ExtResource("1_2yuja")
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 314.093, 30, 137.536)
+layers = 0
+radius = 75.0
+radial_segments = 32
+material = ExtResource("1_2yuja")

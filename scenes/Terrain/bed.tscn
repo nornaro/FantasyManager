@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx1anmukivb2t"]
+
+[ext_resource type="Texture2D" uid="uid://dntil4obtmbrv" path="res://addons/kenney_prototype_textures/light/texture_11.png" id="1_xaum6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcd6p"]
+albedo_color = Color(0.2, 0.141176, 0.0980392, 1)
+albedo_texture = ExtResource("1_xaum6")
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D"]
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 289.123, 0, 135.312)
+layers = 0
+radius = 40.0
+radial_segments = 32
+material = SubResource("StandardMaterial3D_gcd6p")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 310, 0, 100)
+layers = 0
+radius = 40.0
+radial_segments = 32
+material = SubResource("StandardMaterial3D_gcd6p")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 350, 0, 130)
+layers = 0
+radius = 40.0
+radial_segments = 32
+material = SubResource("StandardMaterial3D_gcd6p")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 90)
+layers = 0
+radius = 40.0
+radial_segments = 32
+material = SubResource("StandardMaterial3D_gcd6p")
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 351, 0, 90)
+layers = 0
+radius = 40.0
+radial_segments = 32
+material = SubResource("StandardMaterial3D_gcd6p")
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 314.093, 0, 137.536)
+layers = 0
+radius = 40.0
+radial_segments = 32
+material = SubResource("StandardMaterial3D_gcd6p")

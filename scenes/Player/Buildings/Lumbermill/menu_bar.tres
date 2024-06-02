@@ -1,0 +1,4 @@
+[gd_resource type="ViewportTexture" format=3 uid="uid://bnadch64gwqak"]
+
+[resource]
+viewport_path = NodePath("VBoxContainer/BuildMenu0/Lumbermill/SubViewport")

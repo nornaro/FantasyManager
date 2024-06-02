@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://djgiauir6njny"]
+
+[ext_resource type="PackedScene" path="res://scenes/Terrain/bed.tscn" id="1_mjmqc"]
+[ext_resource type="PackedScene" path="res://scenes/Terrain/shore.tscn" id="2_64kb1"]
+[ext_resource type="PackedScene" uid="uid://doa7q2km4fxul" path="res://scenes/Terrain/river.tscn" id="3_xa6dh"]
+
+[node name="Waters" type="CSGCombiner3D"]
+layers = 0
+operation = 2
+
+[node name="CSGCombiner3D_bed" parent="." instance=ExtResource("1_mjmqc")]
+
+[node name="CSGCombiner3D_shore" parent="." instance=ExtResource("2_64kb1")]
+
+[node name="CSGCombiner3D3_river" parent="." instance=ExtResource("3_xa6dh")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1, 0)

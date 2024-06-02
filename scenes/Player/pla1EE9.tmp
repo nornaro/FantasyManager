@@ -1,0 +1,339 @@
+[gd_scene load_steps=22 format=3 uid="uid://clycqwecjjffs"]
+
+[ext_resource type="PackedScene" uid="uid://cb1rnlrmub2cv" path="res://scenes/Player/buildings_spot_collector.tscn" id="1_1bpmf"]
+[ext_resource type="Script" path="res://scenes/Player/player.gd" id="1_k4jv2"]
+[ext_resource type="PackedScene" uid="uid://k2ieapujgc2h" path="res://scenes/Player/UI/scroll.tscn" id="3_yytcm"]
+[ext_resource type="Script" path="res://scenes/Player/TopDownCamera3D.gd" id="4_p760g"]
+[ext_resource type="Script" path="res://scenes/Player/ray_cast_3d.gd" id="5_d7il4"]
+[ext_resource type="Script" path="res://scenes/Player/select.gd" id="5_u4kq3"]
+[ext_resource type="Texture2D" uid="uid://cun73k8jdmr4e" path="res://addons/proton_scatter/icons/add.svg" id="7_bt15r"]
+[ext_resource type="Script" path="res://scenes/Player/h_flow_container.gd" id="7_lepob"]
+[ext_resource type="Script" path="res://scenes/Player/buildbutton.gd" id="9_i7md8"]
+[ext_resource type="Script" path="res://scenes/Player/Buildings/build.gd" id="10_grjjh"]
+[ext_resource type="PackedScene" uid="uid://bakv1oe8s0nep" path="res://scenes/Player/Buildings/Lumbermill/lumbermill.tscn" id="10_q08md"]
+[ext_resource type="ArrayMesh" uid="uid://dnb7at2ai1ug0" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/blue/building_lumbermill_blue.obj" id="11_phrcd"]
+[ext_resource type="PackedScene" uid="uid://boga4pf7y1rq6" path="res://scenes/Player/Buildings/Watermill/watermill.tscn" id="11_xch4t"]
+[ext_resource type="PackedScene" uid="uid://cpi5n1vis4k4b" path="res://scenes/Player/Buildings/Windmill/windmill.tscn" id="12_obdlc"]
+[ext_resource type="ArrayMesh" uid="uid://b2w08gmgbf2ks" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/blue/building_lumbermill_blue_building_lumbermill_top_blue.obj" id="12_wfn47"]
+[ext_resource type="ArrayMesh" uid="uid://j6wc3dwtomsc" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/red/building_lumbermill_red_building_lumbermill_saw_red.obj" id="13_nj1wg"]
+[ext_resource type="PackedScene" uid="uid://cs6ucceaky72b" path="res://scenes/Player/Buildings/sub_viewport.tscn" id="14_c3wuh"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wldiv"]
+properties/0/path = NodePath("Score:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_spekf"]
+viewport_path = NodePath(".")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mdec6"]
+points = PackedVector3Array(-0.651083, 0.00510314, 0.0714575, 0.192536, 1.07049, 0.0938459, 0.175, 1.02176, -0.324471, 0.532223, 0.0137405, 0.132777, 0.538055, 0.00813244, -0.406945, -0.653453, 0.0725154, -0.470148, -0.351412, 1.04089, 0.173588, 0.0189618, -0.0143484, 0.571197, 0.691648, 0.658156, 0.115558, -0.35633, 1.04812, -0.44867, 0.661146, 0.65244, -0.385, -0.436519, 0.2678, 0.527876, 0.409471, 0.159273, 0.527774, -0.433497, 1.04116, 0.091503, 0.0840693, 0.961966, -0.470046, 0.105817, 1.07049, 0.180591, -0.590347, 0.00328445, -0.453222, -0.672902, 0.0254528, 0.113305, -0.439521, 1.04833, -0.365479, -0.439842, 0.00743051, 0.44619, 0.40826, 0.0143543, 0.50252, 0.0799117, 1.04449, -0.445088, 0.691648, 0.614724, 0.115558, -0.45813, 0.289462, 0.506062, -0.673257, 0.0461106, 0.0505244, -0.628037, 0.137339, 0.187238, 0.564965, 0.0865786, -0.11761, 0.0189618, 0.0725154, 0.571197, -0.436519, 0.224368, 0.527876, 0.659557, 0.610718, -0.383957, -0.630853, 0.0569856, 0.207498, 0.669901, 0.679818, 0.115558)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rrpj8"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_k4jv2")
+
+[node name="BuildingsSpotCollector" parent="." instance=ExtResource("1_1bpmf")]
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="Scroll" parent="." instance=ExtResource("3_yytcm")]
+modulate = Color(1, 1, 1, 0)
+
+[node name="TopDownCamera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 500, 0)
+script = ExtResource("4_p760g")
+
+[node name="RayCast3D" type="RayCast3D" parent="TopDownCamera3D" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, -250, -433.013)
+script = ExtResource("5_d7il4")
+camera = NodePath("..")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_wldiv")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Select" type="Node3D" parent="."]
+script = ExtResource("5_u4kq3")
+
+[node name="MenuBar" type="VBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuBar"]
+layout_mode = 2
+alignment = 2
+
+[node name="PositionReset" type="Button" parent="MenuBar/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Insert"
+text = "H"
+
+[node name="RotationReset" type="Button" parent="MenuBar/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Delete"
+text = "R"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuBar"]
+layout_mode = 2
+
+[node name="BuildMenu1" type="HFlowContainer" parent="MenuBar/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+last_wrap_alignment = 1
+script = ExtResource("7_lepob")
+
+[node name="Tower" type="Button" parent="MenuBar/VBoxContainer/BuildMenu1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Watermill" type="Button" parent="MenuBar/VBoxContainer/BuildMenu1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Well" type="Button" parent="MenuBar/VBoxContainer/BuildMenu1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Windmill" type="Button" parent="MenuBar/VBoxContainer/BuildMenu1"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Buildings" type="Node3D" parent="MenuBar/VBoxContainer/BuildMenu1"]
+
+[node name="Watermill" parent="MenuBar/VBoxContainer/BuildMenu1/Buildings" instance=ExtResource("11_xch4t")]
+
+[node name="Windmill" parent="MenuBar/VBoxContainer/BuildMenu1/Buildings" instance=ExtResource("12_obdlc")]
+
+[node name="Lumbermill" parent="MenuBar/VBoxContainer/BuildMenu1/Buildings" instance=ExtResource("10_q08md")]
+
+[node name="BuildMenu0" type="HFlowContainer" parent="MenuBar/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+last_wrap_alignment = 1
+script = ExtResource("7_lepob")
+
+[node name="Archery" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Barracks" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Blacksmith" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Castle" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Curch" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Home" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Lumbermill" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = SubResource("ViewportTexture_spekf")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Lumbermill" type="StaticBody3D" parent="MenuBar/VBoxContainer/BuildMenu0/Lumbermill"]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MenuBar/VBoxContainer/BuildMenu0/Lumbermill/Lumbermill"]
+shape = SubResource("ConvexPolygonShape3D_mdec6")
+disabled = true
+script = ExtResource("10_grjjh")
+
+[node name="bot" type="MeshInstance3D" parent="MenuBar/VBoxContainer/BuildMenu0/Lumbermill/Lumbermill/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = ExtResource("11_phrcd")
+skeleton = NodePath("../..")
+
+[node name="top" type="MeshInstance3D" parent="MenuBar/VBoxContainer/BuildMenu0/Lumbermill/Lumbermill/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = ExtResource("12_wfn47")
+skeleton = NodePath("../..")
+
+[node name="axis" type="MeshInstance3D" parent="MenuBar/VBoxContainer/BuildMenu0/Lumbermill/Lumbermill/CollisionShape3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("BoxMesh_rrpj8")
+
+[node name="wheel" type="MeshInstance3D" parent="MenuBar/VBoxContainer/BuildMenu0/Lumbermill/Lumbermill/CollisionShape3D/axis"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+rotation_edit_mode = 2
+mesh = ExtResource("13_nj1wg")
+skeleton = NodePath("../../..")
+
+[node name="SubViewport" parent="MenuBar/VBoxContainer/BuildMenu0/Lumbermill/Lumbermill" instance=ExtResource("14_c3wuh")]
+
+[node name="Market" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Mine" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Tavern" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Tower" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Watermill" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Well" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Windmill" type="Button" parent="MenuBar/VBoxContainer/BuildMenu0"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("7_bt15r")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_i7md8")
+
+[node name="Buildings" type="Node3D" parent="MenuBar/VBoxContainer/BuildMenu0"]
+unique_name_in_owner = true
+
+[node name="Watermill" parent="MenuBar/VBoxContainer/BuildMenu0/Buildings" instance=ExtResource("11_xch4t")]
+
+[node name="Windmill" parent="MenuBar/VBoxContainer/BuildMenu0/Buildings" instance=ExtResource("12_obdlc")]
+
+[node name="Lumbermill" parent="MenuBar/VBoxContainer/BuildMenu0/Buildings" instance=ExtResource("10_q08md")]
+
+[connection signal="scroll" from="Scroll" to="TopDownCamera3D" method="_on_scroll_scroll"]
+[connection signal="pressed" from="MenuBar/HBoxContainer/PositionReset" to="TopDownCamera3D" method="_on_position_reset_pressed"]
+[connection signal="pressed" from="MenuBar/HBoxContainer/RotationReset" to="TopDownCamera3D" method="_on_rotation_reset_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu1/Tower" to="MenuBar/VBoxContainer/BuildMenu1/Tower" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu1/Watermill" to="MenuBar/VBoxContainer/BuildMenu1/Watermill" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu1/Well" to="MenuBar/VBoxContainer/BuildMenu1/Well" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu1/Windmill" to="MenuBar/VBoxContainer/BuildMenu1/Windmill" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Archery" to="MenuBar/VBoxContainer/BuildMenu0/Archery" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Barracks" to="MenuBar/VBoxContainer/BuildMenu0/Barracks" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Blacksmith" to="MenuBar/VBoxContainer/BuildMenu0/Blacksmith" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Castle" to="MenuBar/VBoxContainer/BuildMenu0/Castle" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Curch" to="MenuBar/VBoxContainer/BuildMenu0/Curch" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Home" to="MenuBar/VBoxContainer/BuildMenu0/Home" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Lumbermill" to="MenuBar/VBoxContainer/BuildMenu0/Lumbermill" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Market" to="MenuBar/VBoxContainer/BuildMenu0/Market" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Mine" to="MenuBar/VBoxContainer/BuildMenu0/Mine" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Tavern" to="MenuBar/VBoxContainer/BuildMenu0/Tavern" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Tower" to="MenuBar/VBoxContainer/BuildMenu0/Tower" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Watermill" to="MenuBar/VBoxContainer/BuildMenu0/Watermill" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Well" to="MenuBar/VBoxContainer/BuildMenu0/Well" method="_on_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/BuildMenu0/Windmill" to="MenuBar/VBoxContainer/BuildMenu0/Windmill" method="_on_pressed"]

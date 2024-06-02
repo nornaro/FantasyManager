@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://6ddma2ujhk5x"]
+
+[ext_resource type="Texture2D" uid="uid://dntil4obtmbrv" path="res://addons/kenney_prototype_textures/light/texture_11.png" id="1_bg18p"]
+[ext_resource type="Material" path="res://res/soil.tres" id="2_r6tkh"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="3_bd4b0"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="4_484bb"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="5_612jx"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="10_tudja"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="11_vj41m"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="12_53o3i"]
+[ext_resource type="PackedScene" path="res://scenes/Terrain/waters.tscn" id="13_f0gxo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8x080"]
+albedo_color = Color(0.2, 0.141176, 0.0980392, 1)
+albedo_texture = ExtResource("1_bg18p")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="Resource" id="Resource_as4ta"]
+script = ExtResource("4_484bb")
+stack = Array[ExtResource("5_612jx")]([])
+
+[sub_resource type="Resource" id="Resource_lhwxf"]
+script = ExtResource("12_53o3i")
+size = Vector3(200, 1, 150)
+
+[node name="BotLayer" type="CSGCombiner3D"]
+layers = 2
+operation = 1
+use_collision = true
+collision_layer = 2
+collision_mask = 2
+
+[node name="Soil" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+layers = 2
+size = Vector3(1000, 100, 800)
+material = SubResource("StandardMaterial3D_8x080")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.1857, 0, 217.376)
+layers = 0
+operation = 2
+radius = 20.0
+radial_segments = 32
+material = ExtResource("2_r6tkh")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 0, 220)
+layers = 0
+operation = 2
+radius = 20.0
+radial_segments = 32
+material = ExtResource("2_r6tkh")
+
+[node name="Bulrush" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 100)
+script = ExtResource("3_bd4b0")
+render_mode = 2
+force_rebuild_on_load = false
+modifier_stack = SubResource("Resource_as4ta")
+Performance/use_chunks = false
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="Bulrush"]
+script = ExtResource("10_tudja")
+source_scale_multiplier = 4.0
+path = "res://water_plant.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="Bulrush"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 20)
+script = ExtResource("11_vj41m")
+shape = SubResource("Resource_lhwxf")
+
+[node name="Waters" parent="." instance=ExtResource("13_f0gxo")]

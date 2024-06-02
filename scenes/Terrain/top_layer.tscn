@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2ivejr0dwmr0"]
+
+[ext_resource type="Texture2D" uid="uid://utep80wryiow" path="res://addons/kenney_prototype_textures/green/texture_04.png" id="1_yyj0x"]
+[ext_resource type="Material" path="res://res/soil.tres" id="2_h2syb"]
+[ext_resource type="PackedScene" uid="uid://cat4udnace4je" path="res://scenes/Terrain/roads.tscn" id="3_p6g2b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m3d5"]
+albedo_color = Color(0.400698, 0.400698, 0.400698, 1)
+albedo_texture = ExtResource("1_yyj0x")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="TopLayer" type="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+use_collision = true
+
+[node name="Grass" type="CSGBox3D" parent="."]
+physics_interpolation_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+size = Vector3(1000, 0.1, 800)
+material = SubResource("StandardMaterial3D_7m3d5")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 1, 70, 1.5, 217)
+layers = 0
+operation = 2
+radius = 40.0
+radial_segments = 32
+material = ExtResource("2_h2syb")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 1, 95, 1.5, 220)
+layers = 0
+operation = 2
+radius = 40.0
+radial_segments = 32
+material = ExtResource("2_h2syb")
+
+[node name="Roads" parent="." instance=ExtResource("3_p6g2b")]

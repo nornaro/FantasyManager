@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=3 uid="uid://cat4udnace4je"]
+
+[ext_resource type="Material" path="res://res/roads.tres" id="1_bk6nx"]
+
+[node name="Roads" type="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+operation = 2
+use_collision = true
+
+[node name="Road" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.09278e-08, -1, 0, 0.25, -4.37114e-08, 0, 0, 0, 1, 280, 0.25, -180)
+radius = 2.0
+height = 475.601
+material = ExtResource("1_bk6nx")
+
+[node name="Road2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.09278e-08, -1, 0, 0.25, -4.37114e-08, 0, 0, 0, 1, -231.544, 0.25, -180)
+radius = 2.0
+height = 418.432
+material = ExtResource("1_bk6nx")
+
+[node name="Road3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.09278e-08, -1, 0, 0.25, -4.37114e-08, 0, 0, 0, 1, -260, 0.25, -120)
+radius = 2.0
+height = 362.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.09278e-08, -1, 0, 0.25, -4.37114e-08, 0, 0, 0, 1, -230.13, 0.25, -60)
+radius = 2.0
+height = 420.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.09278e-08, -1, 0, 0.25, -4.37114e-08, 0, 0, 0, 1, -379.761, 0.25, 0)
+radius = 2.0
+height = 123.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road17" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.09278e-08, -1, 0, 0.25, -4.37114e-08, 0, 0, 0, 1, -200, 0.25, -250)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road21" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.09278e-08, -1, 0, 0.25, -4.37114e-08, 0, 0, 0, 1, -200, 0.25, -310)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road18" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1.09278e-08, -1, 0, 0.25, -4.37114e-08, 0, 0, 0, 1, -200, 0.25, -400)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -260, 0.25, -90)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -200, 0.25, -90)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road16" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -200, 0.25, -185.903)
+radius = 2.0
+height = 130.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road22" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -200, 0.25, -325)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road19" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -85, 0.25, -325)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road20" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -315, 0.25, -325)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road11" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -200, 0.25, -90)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road12" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -140, 0.25, -90)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road13" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -80, 0.25, -90)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road15" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -20, 0.25, -120)
+radius = 2.0
+height = 122.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road14" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -80, 0.25, 145)
+radius = 2.0
+height = 60.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -320, 0.25, -90)
+radius = 2.0
+height = 184.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -380, 0.25, -90)
+radius = 2.0
+height = 184.0
+material = ExtResource("1_bk6nx")
+
+[node name="Road9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(4.77672e-16, 4.37114e-08, 1, 0.25, -4.37114e-08, -3.59989e-21, 1.09278e-08, 1, -4.37114e-08, -440, 0.25, -90)
+radius = 2.0
+height = 184.0
+material = ExtResource("1_bk6nx")

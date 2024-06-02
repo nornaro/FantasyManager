@@ -1,0 +1,397 @@
+[gd_scene load_steps=49 format=3 uid="uid://baxx31p3giaol"]
+
+[ext_resource type="PackedScene" uid="uid://d2ivejr0dwmr0" path="res://top_layer.tscn" id="1_mujyv"]
+[ext_resource type="PackedScene" uid="uid://6ddma2ujhk5x" path="res://bot_layer.tscn" id="2_nenfw"]
+[ext_resource type="PackedScene" uid="uid://cat4udnace4je" path="res://roads.tscn" id="4_wituh"]
+[ext_resource type="PackedScene" uid="uid://dcvievenuix2y" path="res://grass_scene.tscn" id="15_1ukeu"]
+[ext_resource type="PackedScene" uid="uid://dtj048m01tf2l" path="res://forest_a.tscn" id="15_gpjst"]
+[ext_resource type="PackedScene" uid="uid://4j1hka0bfhg7" path="res://forest_b.tscn" id="16_tlckl"]
+[ext_resource type="PackedScene" uid="uid://bpe1ilaur0h57" path="res://bridges.tscn" id="16_yf75g"]
+[ext_resource type="PackedScene" uid="uid://v5apvskigjrh" path="res://mine.tscn" id="17_is6ch"]
+[ext_resource type="Script" path="res://players.gd" id="21_d4r01"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="21_toryk"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/offset_position.gd" id="21_xwmpl"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="22_vardk"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="23_uod68"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="24_chfdm"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="25_6cimy"]
+[ext_resource type="PackedScene" uid="uid://efsmd3hyd0yn" path="res://water.tscn" id="25_h1ba0"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="26_38wdw"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="27_46nyq"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="28_7bb31"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="29_3aa7w"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="30_eqmst"]
+
+[sub_resource type="Resource" id="Resource_ltxt1"]
+script = ExtResource("24_chfdm")
+amount = 50000
+enabled = true
+override_global_seed = true
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_ss4jl"]
+script = ExtResource("25_6cimy")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(20, 360, 20)
+scale = Vector3(0.1, 0.5, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_7y4ap"]
+script = ExtResource("26_38wdw")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_1ywj7"]
+script = ExtResource("27_46nyq")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = true
+align_with_collision_normal = false
+max_slope = 5.0
+collision_mask = 1
+exclude_mask = 6
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_khwfl"]
+script = ExtResource("22_vardk")
+stack = Array[ExtResource("23_uod68")]([SubResource("Resource_ltxt1"), SubResource("Resource_ss4jl"), SubResource("Resource_7y4ap"), SubResource("Resource_1ywj7")])
+
+[sub_resource type="Resource" id="Resource_h084n"]
+script = ExtResource("24_chfdm")
+amount = 300
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_crjrv"]
+script = ExtResource("25_6cimy")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(20, 360, 20)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_uud2i"]
+script = ExtResource("26_38wdw")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_jt86e"]
+script = ExtResource("27_46nyq")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 0.0
+collision_mask = 1
+exclude_mask = 6
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_dweq4"]
+script = ExtResource("22_vardk")
+stack = Array[ExtResource("23_uod68")]([SubResource("Resource_h084n"), SubResource("Resource_crjrv"), SubResource("Resource_uud2i"), SubResource("Resource_jt86e")])
+
+[sub_resource type="Resource" id="Resource_qg2og"]
+script = ExtResource("24_chfdm")
+amount = 500
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_tsopl"]
+script = ExtResource("25_6cimy")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(5, 360, 5)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_lulyn"]
+script = ExtResource("26_38wdw")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_i8emb"]
+script = ExtResource("27_46nyq")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 0.0
+collision_mask = 1
+exclude_mask = 6
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_mktm5"]
+script = ExtResource("22_vardk")
+stack = Array[ExtResource("23_uod68")]([SubResource("Resource_qg2og"), SubResource("Resource_tsopl"), SubResource("Resource_lulyn"), SubResource("Resource_i8emb")])
+
+[sub_resource type="Resource" id="Resource_5lolr"]
+script = ExtResource("24_chfdm")
+amount = 200
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_24d0n"]
+script = ExtResource("25_6cimy")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(20, 360, 20)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_2pi1d"]
+script = ExtResource("26_38wdw")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_knnfs"]
+script = ExtResource("27_46nyq")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 10.0
+ray_offset = 1.0
+remove_points_on_miss = true
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 6
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_r2llu"]
+script = ExtResource("22_vardk")
+stack = Array[ExtResource("23_uod68")]([SubResource("Resource_5lolr"), SubResource("Resource_24d0n"), SubResource("Resource_2pi1d"), SubResource("Resource_knnfs")])
+
+[sub_resource type="Resource" id="Resource_xfu15"]
+script = ExtResource("24_chfdm")
+amount = 50
+enabled = true
+override_global_seed = true
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_pxxm6"]
+script = ExtResource("25_6cimy")
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 360, 0)
+scale = Vector3(0.1, 0.5, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_r581x"]
+script = ExtResource("26_38wdw")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_jdn8c"]
+script = ExtResource("21_xwmpl")
+operation = 0
+position = Vector3(0, -1.3, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_6l3fl"]
+script = ExtResource("22_vardk")
+stack = Array[ExtResource("23_uod68")]([SubResource("Resource_xfu15"), SubResource("Resource_pxxm6"), SubResource("Resource_r581x"), SubResource("Resource_jdn8c")])
+
+[sub_resource type="Resource" id="Resource_10i52"]
+script = ExtResource("30_eqmst")
+size = Vector3(200, 1, 135)
+
+[sub_resource type="Environment" id="Environment_h4b32"]
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, -1000, 100, -601)
+light_color = Color(1, 1, 0.847059, 1)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="TopLayer" parent="." instance=ExtResource("1_mujyv")]
+
+[node name="BotLayer" parent="." instance=ExtResource("2_nenfw")]
+
+[node name="Water" parent="." instance=ExtResource("25_h1ba0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Roads" parent="." instance=ExtResource("4_wituh")]
+
+[node name="Bridges" parent="." instance=ExtResource("16_yf75g")]
+
+[node name="Grass" parent="." instance=ExtResource("15_1ukeu")]
+modifier_stack = SubResource("Resource_khwfl")
+
+[node name="ForestA" parent="." instance=ExtResource("15_gpjst")]
+force_rebuild_on_load = true
+enable_updates_in_game = true
+modifier_stack = SubResource("Resource_dweq4")
+
+[node name="ForestB" parent="." instance=ExtResource("16_tlckl")]
+force_rebuild_on_load = true
+enable_updates_in_game = true
+modifier_stack = SubResource("Resource_mktm5")
+
+[node name="Mine" parent="." instance=ExtResource("17_is6ch")]
+modifier_stack = SubResource("Resource_r2llu")
+
+[node name="Plants" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 100)
+script = ExtResource("21_toryk")
+force_rebuild_on_load = false
+modifier_stack = SubResource("Resource_6l3fl")
+Performance/use_chunks = false
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="Plants"]
+script = ExtResource("28_7bb31")
+source_scale_multiplier = 4.0
+path = "res://water_plant2.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="Plants"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, 13)
+script = ExtResource("29_3aa7w")
+shape = SubResource("Resource_10i52")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h4b32")
+
+[node name="Players" type="MultiplayerSpawner" parent="."]
+unique_name_in_owner = true
+_spawnable_scenes = PackedStringArray("res://buildings_spot_collector.tscn")
+spawn_path = NodePath(".")
+spawn_limit = 4
+script = ExtResource("21_d4r01")
+
+[node name="Menu" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -69.0
+offset_right = 75.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Host" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="Label" type="Label" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="To" type="LineEdit" parent="Menu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Enter server IP"
+
+[node name="Join" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="DisplayPublicIP" type="Label" parent="Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Host" to="Players" method="_on_host_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Join" to="Players" method="_on_join_pressed"]

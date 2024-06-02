@@ -1,0 +1,142 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb1rnlrmub2cv"]
+
+[ext_resource type="PackedScene" uid="uid://b4hv6ho2gawv3" path="res://scenes/Player/BuildBase.tscn" id="1_5ovg0"]
+[ext_resource type="Script" path="res://scenes/Player/buildings_spot_collector.gd" id="1_qrbt0"]
+
+[node name="BuildingsSpotCollector" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230, 0, -230)
+script = ExtResource("1_qrbt0")
+
+[node name="BuildBase0" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(9.06308, 0, 4.22618, 0, 10, 0, -4.22618, 0, 9.06308, -72, 0, -80)
+
+[node name="BuildBase1" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -80)
+
+[node name="BuildBase2" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 80, 0, -80)
+
+[node name="BuildBase3" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 160, 0, -80)
+
+[node name="BuildBase4" parent="." instance=ExtResource("1_5ovg0")]
+
+[node name="BuildBase5" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 80, 0, 0)
+
+[node name="BuildBase6" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 160, 0, 0)
+
+[node name="BuildBase7" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 100)
+
+[node name="BuildBase8" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 80, 0, 100)
+
+[node name="BuildBase9" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 160, 0, 100)
+
+[node name="BuildBase14" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 215, 0, 100)
+
+[node name="BuildBase15" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 215, 0, 0)
+
+[node name="BuildBase16" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 215, 0, -80)
+
+[node name="BuildBase17" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 215, 0, 180)
+
+[node name="BuildBase10" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 180)
+
+[node name="BuildBase11" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 80, 0, 180)
+
+[node name="BuildBase12" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 160, 0, 180)
+
+[node name="BuildBase13" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, -430, 0, -130)
+
+[node name="BuildBase18" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -280, 0, 80)
+
+[node name="BuildBase19" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -280, 0, 140)
+
+[node name="BuildBase20" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -340, 0, 80)
+
+[node name="BuildBase21" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -340, 0, 140)
+
+[node name="BuildBase22" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -340, 0, 200)
+
+[node name="BuildBase23" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -400, 0, 80)
+
+[node name="BuildBase24" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -400, 0, 140)
+
+[node name="BuildBase25" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -400, 0, 200)
+
+[node name="BuildBase26" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -460, 0, 80)
+
+[node name="BuildBase27" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -460, 0, 140)
+
+[node name="BuildBase28" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -460, 0, 200)
+
+[node name="BuildBase29" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -520.131, 0, 80)
+
+[node name="BuildBase30" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -520.131, 0, 140)
+
+[node name="BuildBase31" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -520.131, 0, 200)
+
+[node name="BuildBase32" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -580, 0, 80)
+
+[node name="BuildBase33" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -580, 0, 140)
+
+[node name="BuildBase34" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -580, 0, 200)
+
+[node name="BuildBase35" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -640, 0, 80)
+
+[node name="BuildBase36" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -640, 0, 140)
+
+[node name="BuildBase37" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -640, 0, 200)
+
+[node name="BuildBase38" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -700, 0, 80)
+
+[node name="BuildBase39" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -700, 0, 140)
+
+[node name="BuildBase40" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -700, 0, 200)
+
+[node name="BuildBase41" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -515, 0, -50)
+
+[node name="BuildBase42" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -460, 0, -50)
+
+[node name="BuildBase43" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -400, 0, -50)
+
+[node name="BuildBase44" parent="." instance=ExtResource("1_5ovg0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -345, 0, -50)
