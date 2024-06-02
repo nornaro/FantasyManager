@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bakv1oe8s0nep"]
+
+[ext_resource type="ArrayMesh" uid="uid://dnb7at2ai1ug0" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/blue/building_lumbermill_blue.obj" id="1_74nqp"]
+[ext_resource type="Script" path="res://scenes/Player/Buildings/build.gd" id="1_lyn1w"]
+[ext_resource type="ArrayMesh" uid="uid://b2w08gmgbf2ks" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/blue/building_lumbermill_blue_building_lumbermill_top_blue.obj" id="3_myy8m"]
+[ext_resource type="ArrayMesh" uid="uid://j6wc3dwtomsc" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/red/building_lumbermill_red_building_lumbermill_saw_red.obj" id="4_mhf5w"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mdec6"]
+points = PackedVector3Array(-0.651083, 0.00510314, 0.0714575, 0.192536, 1.07049, 0.0938459, 0.175, 1.02176, -0.324471, 0.532223, 0.0137405, 0.132777, 0.538055, 0.00813244, -0.406945, -0.653453, 0.0725154, -0.470148, -0.351412, 1.04089, 0.173588, 0.0189618, -0.0143484, 0.571197, 0.691648, 0.658156, 0.115558, -0.35633, 1.04812, -0.44867, 0.661146, 0.65244, -0.385, -0.436519, 0.2678, 0.527876, 0.409471, 0.159273, 0.527774, -0.433497, 1.04116, 0.091503, 0.0840693, 0.961966, -0.470046, 0.105817, 1.07049, 0.180591, -0.590347, 0.00328445, -0.453222, -0.672902, 0.0254528, 0.113305, -0.439521, 1.04833, -0.365479, -0.439842, 0.00743051, 0.44619, 0.40826, 0.0143543, 0.50252, 0.0799117, 1.04449, -0.445088, 0.691648, 0.614724, 0.115558, -0.45813, 0.289462, 0.506062, -0.673257, 0.0461106, 0.0505244, -0.628037, 0.137339, 0.187238, 0.564965, 0.0865786, -0.11761, 0.0189618, 0.0725154, 0.571197, -0.436519, 0.224368, 0.527876, 0.659557, 0.610718, -0.383957, -0.630853, 0.0569856, 0.207498, 0.669901, 0.679818, 0.115558)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rrpj8"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Lumbermill" type="StaticBody3D"]
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_mdec6")
+disabled = true
+script = ExtResource("1_lyn1w")
+
+[node name="bot" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = ExtResource("1_74nqp")
+skeleton = NodePath("../..")
+
+[node name="top" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = ExtResource("3_myy8m")
+skeleton = NodePath("../..")
+
+[node name="axis" type="MeshInstance3D" parent="CollisionShape3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("BoxMesh_rrpj8")
+
+[node name="wheel" type="MeshInstance3D" parent="CollisionShape3D/axis"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+rotation_edit_mode = 2
+mesh = ExtResource("4_mhf5w")
+skeleton = NodePath("../../..")

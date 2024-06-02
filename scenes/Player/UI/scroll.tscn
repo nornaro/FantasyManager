@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://k2ieapujgc2h"]
+
+[ext_resource type="Script" path="res://scenes/Player/UI/scroll.gd" id="1_nwr0g"]
+
+[node name="Scroll" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nwr0g")
+
+[node name="L" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="R" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="U" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="D" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="mouse_entered" from="L" to="." method="_on_l_mouse_entered"]
+[connection signal="mouse_exited" from="L" to="." method="_on_l_mouse_exited"]
+[connection signal="mouse_entered" from="R" to="." method="_on_r_mouse_entered"]
+[connection signal="mouse_exited" from="R" to="." method="_on_r_mouse_exited"]
+[connection signal="mouse_entered" from="U" to="." method="_on_u_mouse_entered"]
+[connection signal="mouse_exited" from="U" to="." method="_on_u_mouse_exited"]
+[connection signal="mouse_entered" from="D" to="." method="_on_d_mouse_entered"]
+[connection signal="mouse_exited" from="D" to="." method="_on_d_mouse_exited"]

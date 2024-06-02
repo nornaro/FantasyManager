@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpfad467iajuq"]
+
+[ext_resource type="ArrayMesh" uid="uid://ouy2va13s5a4" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/red/building_watermill_red.obj" id="1_prvml"]
+[ext_resource type="ArrayMesh" uid="uid://dhv8y4j1bpmn0" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/buildings/red/building_watermill_red_building_watermill_wheel_red.obj" id="2_6tl0k"]
+
+[node name="Watermill" type="Node3D"]
+
+[node name="bot" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -2, 0)
+mesh = ExtResource("1_prvml")
+skeleton = NodePath("")
+
+[node name="wheel" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.75, 9.91885e-23, -8.44415e-08, 0, 0.75, 6.11793e-16, 1.0133e-07, 7.34151e-16, -0.625, 0, -2, 0)
+mesh = ExtResource("2_6tl0k")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

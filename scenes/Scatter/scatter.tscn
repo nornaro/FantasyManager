@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://gcxsorpmos5j"]
+
+[ext_resource type="Script" path="res://scenes/Scatter/scatter.gd" id="1_y5bv4"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/cache/scatter_cache.gd" id="8_fjvir"]
+
+[node name="Scatter" type="Node3D"]
+script = ExtResource("1_y5bv4")
+
+[node name="ScatterCache" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -400, 0, -300)
+script = ExtResource("8_fjvir")
+cache_file = "res://addons/proton_scatter/cache/Grass1_scatter_cache.res"

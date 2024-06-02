@@ -1,0 +1,123 @@
+[gd_scene load_steps=21 format=3 uid="uid://4j1hka0bfhg7"]
+
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="1_ttuw8"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="2_rgu8h"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="3_n6sfv"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_grid.gd" id="4_y2jhd"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="5_emsf4"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="7_1whx7"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="8_gy3pb"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="9_stjxe"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="10_ikyla"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="11_eba2n"]
+
+[sub_resource type="Resource" id="Resource_3aqeb"]
+script = ExtResource("4_y2jhd")
+spacing = Vector3(10, 10, 10)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_noekl"]
+script = ExtResource("5_emsf4")
+position = Vector3(10, 0, 10)
+rotation = Vector3(5, 30, 5)
+scale = Vector3(0, 0.5, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_nkc0o"]
+script = ExtResource("7_1whx7")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 10.0
+ray_offset = 1.0
+remove_points_on_miss = true
+align_with_collision_normal = true
+max_slope = 0.0
+collision_mask = 1
+exclude_mask = 6
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_roeqb"]
+script = ExtResource("2_rgu8h")
+stack = Array[ExtResource("3_n6sfv")]([SubResource("Resource_3aqeb"), SubResource("Resource_noekl"), SubResource("Resource_nkc0o")])
+
+[sub_resource type="Resource" id="Resource_x65aj"]
+script = ExtResource("10_ikyla")
+size = Vector3(150, 1, 100)
+
+[sub_resource type="Resource" id="Resource_rp7ok"]
+script = ExtResource("11_eba2n")
+radius = 50.0
+
+[sub_resource type="Resource" id="Resource_j1gkt"]
+script = ExtResource("11_eba2n")
+radius = 50.0
+
+[sub_resource type="Resource" id="Resource_6icrt"]
+script = ExtResource("11_eba2n")
+radius = 20.0
+
+[sub_resource type="Resource" id="Resource_txgrv"]
+script = ExtResource("11_eba2n")
+radius = 20.0
+
+[sub_resource type="Resource" id="Resource_rw8io"]
+script = ExtResource("10_ikyla")
+size = Vector3(40, 1, 40)
+
+[node name="ForestB" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232.214, 1, 179.515)
+script = ExtResource("1_ttuw8")
+keep_static_colliders = true
+force_rebuild_on_load = false
+modifier_stack = SubResource("Resource_roeqb")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="."]
+script = ExtResource("8_gy3pb")
+source_scale_multiplier = 10.0
+path = "res://addons/proton_scatter/demos/assets/pine_tree.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.236249, 0, 0)
+script = ExtResource("9_stjxe")
+shape = SubResource("Resource_x65aj")
+
+[node name="ScatterShape2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 62.042, 0, -56.2357)
+script = ExtResource("9_stjxe")
+shape = SubResource("Resource_rp7ok")
+
+[node name="ScatterShape3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -87.8824, 0, 25.0213)
+script = ExtResource("9_stjxe")
+shape = SubResource("Resource_j1gkt")
+
+[node name="ScatterShape4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 22.326, 0, -0.279785)
+script = ExtResource("9_stjxe")
+negative = true
+shape = SubResource("Resource_6icrt")
+
+[node name="ScatterShape5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 49.8741, 0, 8.73495)
+script = ExtResource("9_stjxe")
+negative = true
+shape = SubResource("Resource_txgrv")
+
+[node name="ScatterShape7" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -50.1375, 0, 1.20531)
+script = ExtResource("9_stjxe")
+negative = true
+shape = SubResource("Resource_rw8io")

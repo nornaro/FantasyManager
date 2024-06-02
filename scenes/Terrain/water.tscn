@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://efsmd3hyd0yn"]
+
+[ext_resource type="Material" uid="uid://c7mw5tryqfggw" path="res://addons/proton_scatter/demos/assets/materials/m_water.tres" id="1_brrtf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k3maj"]
+material = ExtResource("1_brrtf")
+size = Vector3(1000, 5, 800)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_momyc"]
+size = Vector3(1000, 0.1, 800)
+
+[node name="Water" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="MeshWater" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+layers = 4
+mesh = SubResource("BoxMesh_k3maj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_momyc")

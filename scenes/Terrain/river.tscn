@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://doa7q2km4fxul"]
+
+[ext_resource type="Material" path="res://res/soil.tres" id="1_fre8s"]
+
+[node name="CSGCombiner3D3" type="CSGCombiner3D"]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+layers = 4
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.457936, -0.888986, 3.88588e-08, 0, -4.37114e-08, -1, 0.888986, 0.457936, -2.0017e-08, -81.4844, 0, 29.5186)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.491709, -0.87076, 3.80621e-08, 0, -4.37114e-08, -1, 0.87076, 0.491709, -2.14933e-08, -51.0927, 0, 10.163)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.510543, -0.859853, 3.75854e-08, 0, -4.37114e-08, -1, 0.859853, 0.510543, -2.23165e-08, -66.315, 0, 18.8522)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.457936, -0.888986, 3.88588e-08, 0, -4.37114e-08, -1, 0.888986, 0.457936, -2.0017e-08, -97.9085, 0, 35.4972)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.0939868, -0.995574, 4.35179e-08, 0, -4.37114e-08, -1, 0.995574, 0.0939868, -4.10829e-09, -35.722, 0, 6)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -20, 0, 5)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.666324, -0.745662, 3.25939e-08, -1.78654e-15, -4.37114e-08, -1, 0.745662, 0.666324, -2.9126e-08, -6.01725, 0, -0.870604)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.967534, -0.252745, 1.10478e-08, 2.78257e-16, -4.37114e-08, -1, 0.252745, 0.967534, -4.22922e-08, 2.53301, 0, -15.454)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.967534, -0.252745, 1.10478e-08, 2.78257e-16, -4.37114e-08, -1, 0.252745, 0.967534, -4.22922e-08, 6.56163, 0, -34.209)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.967534, -0.252745, 1.10478e-08, 2.78257e-16, -4.37114e-08, -1, 0.252745, 0.967534, -4.22922e-08, 11.3491, 0, -53.6068)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.483497, -0.875347, 3.82626e-08, 2.46101e-16, -4.37114e-08, -1, 0.875347, 0.483497, -2.11343e-08, 20.5542, 0, -66.2394)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.261668, -0.96516, 4.21885e-08, 1.8132e-15, -4.37114e-08, -1, 0.96516, 0.261668, -1.14378e-08, 38.0857, 0, -73.9661)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")
+
+[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.121471, -0.992597, 4.33878e-08, 1.15917e-15, -4.37115e-08, -1, 0.992597, 0.121471, -5.30966e-09, 56.6617, 0, -78.5891)
+layers = 3
+radius = 5.0
+height = 20.0
+material = ExtResource("1_fre8s")

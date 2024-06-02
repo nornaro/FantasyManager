@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4da01uksey48"]
+
+[ext_resource type="ArrayMesh" uid="uid://b5w8wa7war7jy" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_A.obj" id="1_foydd"]
+[ext_resource type="ArrayMesh" uid="uid://cfd6itdp8y8yr" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_A_grass.obj" id="2_3ppxq"]
+[ext_resource type="ArrayMesh" uid="uid://x4a3csc88pkc" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_A_grass_trees.obj" id="3_tpmks"]
+[ext_resource type="ArrayMesh" uid="uid://drro2t5afr7ep" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_B.obj" id="4_drqqa"]
+[ext_resource type="ArrayMesh" uid="uid://doioj5w0dcwqr" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_B_grass.obj" id="5_qg10a"]
+[ext_resource type="ArrayMesh" uid="uid://b0tg8ve7lfkc3" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_B_grass_trees.obj" id="6_2bayj"]
+[ext_resource type="ArrayMesh" uid="uid://cs2a82anmjikf" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_C.obj" id="7_fwsit"]
+[ext_resource type="ArrayMesh" uid="uid://b7uwexmxv21n6" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_C_grass.obj" id="8_6afrg"]
+[ext_resource type="ArrayMesh" uid="uid://do32rkn4jlexu" path="res://addons/kaykit_medieval_hexagon_pack/Assets/obj/decoration/nature/mountain_C_grass_trees.obj" id="9_uujvu"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MountainA" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_foydd")
+
+[node name="MountainAGrass" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_3ppxq")
+
+[node name="MountainAGrassTrees" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_tpmks")
+
+[node name="MountainB" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_drqqa")
+
+[node name="MountainBGrass" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_qg10a")
+
+[node name="MountainBGrassTrees" type="MeshInstance3D" parent="."]
+mesh = ExtResource("6_2bayj")
+
+[node name="MountainC" type="MeshInstance3D" parent="."]
+mesh = ExtResource("7_fwsit")
+
+[node name="MountainCGrass" type="MeshInstance3D" parent="."]
+mesh = ExtResource("8_6afrg")
+
+[node name="MountainCGrassTrees" type="MeshInstance3D" parent="."]
+mesh = ExtResource("9_uujvu")

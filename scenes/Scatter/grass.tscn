@@ -1,0 +1,97 @@
+[gd_scene load_steps=19 format=3 uid="uid://cks6t7r0cm41w"]
+
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="1_fyd5w"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="2_ap1tp"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="3_nvgad"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_grid.gd" id="4_v0ljb"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="5_r6y56"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="6_5hxly"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="7_drmm7"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_rotation.gd" id="7_wo1vb"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="8_jxbvh"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="9_7rjv5"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="10_actgc"]
+
+[sub_resource type="Resource" id="Resource_yj5o3"]
+script = ExtResource("4_v0ljb")
+spacing = Vector3(2, 1, 2)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_gj0g4"]
+script = ExtResource("5_r6y56")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(20, 5, 20)
+scale = Vector3(0.1, 0.5, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_maner"]
+script = ExtResource("6_5hxly")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_mij1w"]
+script = ExtResource("7_wo1vb")
+rotation = Vector3(5, 360, 5)
+snap_angle = Vector3(0, 0, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_i6qt5"]
+script = ExtResource("7_drmm7")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 5.0
+collision_mask = 1
+exclude_mask = 6
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_id613"]
+script = ExtResource("2_ap1tp")
+stack = Array[ExtResource("3_nvgad")]([SubResource("Resource_yj5o3"), SubResource("Resource_gj0g4"), SubResource("Resource_maner"), SubResource("Resource_mij1w"), SubResource("Resource_i6qt5")])
+
+[sub_resource type="Resource" id="Resource_p8kh6"]
+script = ExtResource("10_actgc")
+size = Vector3(200, 5, 200)
+
+[node name="Grass" type="Node3D"]
+script = ExtResource("1_fyd5w")
+render_mode = 2
+force_rebuild_on_load = false
+modifier_stack = SubResource("Resource_id613")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem1" type="Node3D" parent="."]
+script = ExtResource("8_jxbvh")
+source_scale_multiplier = 5.0
+path = "res://addons/proton_scatter/demos/assets/grass_2.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("9_7rjv5")
+shape = SubResource("Resource_p8kh6")

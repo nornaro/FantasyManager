@@ -1,0 +1,89 @@
+[gd_scene load_steps=19 format=3 uid="uid://b4hv6ho2gawv3"]
+
+[ext_resource type="Script" path="res://scenes/Player/build_base.gd" id="1_7bulp"]
+[ext_resource type="PackedScene" uid="uid://b6ql4dl116j1l" path="res://scenes/Player/Buildings/base_body.tscn" id="1_v5jfw"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="3_ah4kc"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="4_aq31t"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="5_caosv"]
+[ext_resource type="PackedScene" uid="uid://4yiuwpryv66c" path="res://scenes/Player/Buildings/building_junk.tscn" id="5_ve6tk"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/offset_scale.gd" id="7_i67en"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/offset_position.gd" id="8_fkfu0"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="8_jbqp5"]
+[ext_resource type="PackedScene" uid="uid://boga4pf7y1rq6" path="res://scenes/Player/Buildings/Watermill/watermill.tscn" id="12_0osdn"]
+[ext_resource type="PackedScene" uid="uid://cpi5n1vis4k4b" path="res://scenes/Player/Buildings/Windmill/windmill.tscn" id="13_1fldt"]
+[ext_resource type="PackedScene" uid="uid://d2k8vpa106yte" path="res://scenes/Scatter/Select.tscn" id="13_lv1o2"]
+[ext_resource type="PackedScene" uid="uid://bakv1oe8s0nep" path="res://scenes/Player/Buildings/Lumbermill/lumbermill.tscn" id="14_t2up1"]
+
+[sub_resource type="Resource" id="Resource_rdcml"]
+script = ExtResource("5_caosv")
+amount = 10
+enabled = true
+override_global_seed = false
+custom_seed = 19
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_3l1rc"]
+script = ExtResource("8_jbqp5")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = true
+align_with_collision_normal = false
+max_slope = 0.0
+collision_mask = 16
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_rketv"]
+script = ExtResource("7_i67en")
+operation = 1
+scale = Vector3(0.25, 0.25, 0.25)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_4qn55"]
+script = ExtResource("8_fkfu0")
+operation = 0
+position = Vector3(0, 0, 0)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_r7vad"]
+script = ExtResource("3_ah4kc")
+stack = Array[ExtResource("4_aq31t")]([SubResource("Resource_rdcml"), SubResource("Resource_3l1rc"), SubResource("Resource_rketv"), SubResource("Resource_4qn55")])
+
+[node name="Building" type="Node3D"]
+script = ExtResource("1_7bulp")
+
+[node name="BaseBody" parent="." instance=ExtResource("1_v5jfw")]
+unique_name_in_owner = true
+script = null
+
+[node name="Watermill" parent="." instance=ExtResource("12_0osdn")]
+transform = Transform3D(-4, 0, -6.03983e-07, 0, 4, 0, 6.03983e-07, 0, -4, 0, 0, -2.6)
+visible = false
+
+[node name="Windmill" parent="." instance=ExtResource("13_1fldt")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+
+[node name="Lumbermill" parent="." instance=ExtResource("14_t2up1")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+
+[node name="ProtonScatter" parent="." instance=ExtResource("5_ve6tk")]
+unique_name_in_owner = true
+modifier_stack = SubResource("Resource_r7vad")
+
+[node name="Select" parent="." instance=ExtResource("13_lv1o2")]
