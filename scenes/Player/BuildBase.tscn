@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d2k8vpa106yte" path="res://scenes/Scatter/Select.tscn" id="13_lv1o2"]
 [ext_resource type="PackedScene" uid="uid://bakv1oe8s0nep" path="res://scenes/Player/Buildings/Lumbermill/lumbermill.tscn" id="14_t2up1"]
 
-[sub_resource type="Resource" id="Resource_hgpeo"]
+[sub_resource type="Resource" id="Resource_n6vqf"]
 script = ExtResource("5_caosv")
 amount = 10
 enabled = true
@@ -23,7 +23,7 @@ custom_seed = 19
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_1ey3d"]
+[sub_resource type="Resource" id="Resource_r1lc2"]
 script = ExtResource("8_jbqp5")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -39,7 +39,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_hxs8w"]
+[sub_resource type="Resource" id="Resource_3tqcy"]
 script = ExtResource("7_i67en")
 operation = 1
 scale = Vector3(0.25, 0.25, 0.25)
@@ -49,7 +49,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_qex1g"]
+[sub_resource type="Resource" id="Resource_p24jm"]
 script = ExtResource("8_fkfu0")
 operation = 0
 position = Vector3(0, 0, 0)
@@ -59,9 +59,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_fxpsq"]
+[sub_resource type="Resource" id="Resource_ibhb5"]
 script = ExtResource("3_ah4kc")
-stack = Array[ExtResource("4_aq31t")]([SubResource("Resource_hgpeo"), SubResource("Resource_1ey3d"), SubResource("Resource_hxs8w"), SubResource("Resource_qex1g")])
+stack = Array[ExtResource("4_aq31t")]([SubResource("Resource_n6vqf"), SubResource("Resource_r1lc2"), SubResource("Resource_3tqcy"), SubResource("Resource_p24jm")])
 
 [node name="Building" type="Node3D"]
 script = ExtResource("1_7bulp")
@@ -84,6 +84,6 @@ visible = false
 
 [node name="ProtonScatter" parent="." instance=ExtResource("5_ve6tk")]
 unique_name_in_owner = true
-modifier_stack = SubResource("Resource_fxpsq")
+modifier_stack = SubResource("Resource_ibhb5")
 
 [node name="Select" parent="." instance=ExtResource("13_lv1o2")]

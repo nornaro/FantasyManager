@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://c871hv5oa1f3w"]
+
+[ext_resource type="Texture2D" uid="uid://cun73k8jdmr4e" path="res://addons/proton_scatter/icons/add.svg" id="1_vamia"]
+[ext_resource type="Script" path="res://scenes/Player/buildbutton.gd" id="2_5k2os"]
+[ext_resource type="Texture2D" uid="uid://bnadch64gwqak" path="res://scenes/Player/Buildings/Lumbermill/menu_bar.tres" id="3_nbvqj"]
+[ext_resource type="Texture2D" uid="uid://bh5jlmyhmosx5" path="res://scenes/Player/Buildings/Watermill/menu_bar.tres" id="4_fcaiu"]
+[ext_resource type="Texture2D" uid="uid://cdiob353yccqn" path="res://scenes/Player/Buildings/Windmill/menu_bar.tres" id="5_5lffy"]
+
+[node name="Buildings" type="HBoxContainer"]
+
+[node name="Blacksmith" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_vamia")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_5k2os")
+
+[node name="Home" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_vamia")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_5k2os")
+
+[node name="Market" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_vamia")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_5k2os")
+
+[node name="Mine" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_vamia")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_5k2os")
+
+[node name="Lumbermill" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("3_nbvqj")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_5k2os")
+
+[node name="Watermill" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("4_fcaiu")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_5k2os")
+
+[node name="Well" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_vamia")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_5k2os")
+
+[node name="Windmill" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("5_5lffy")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_5k2os")
+
+[connection signal="pressed" from="Blacksmith" to="Blacksmith" method="_on_pressed"]
+[connection signal="pressed" from="Home" to="Home" method="_on_pressed"]
+[connection signal="pressed" from="Market" to="Market" method="_on_pressed"]
+[connection signal="pressed" from="Mine" to="Mine" method="_on_pressed"]
+[connection signal="pressed" from="Lumbermill" to="Lumbermill" method="_on_pressed"]
+[connection signal="pressed" from="Watermill" to="Watermill" method="_on_pressed"]
+[connection signal="pressed" from="Well" to="Well" method="_on_pressed"]
+[connection signal="pressed" from="Windmill" to="Windmill" method="_on_pressed"]

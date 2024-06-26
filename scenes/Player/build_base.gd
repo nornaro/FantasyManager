@@ -4,10 +4,10 @@ extends Node3D
 @export var highlight_color: Color = Color(1, 1, 0) # Yellow
 @export var normal_color: Color = Color(1, 1, 1) # White
 @export var blink_frequency: float = 1.0 # Blinks per second
+
 var pointover = "mousepointover"
 
 func build(building: String) -> void:
-	print(building)
 	%ProtonScatter.hide()
 	$BaseBody.input_ray_pickable = false
 	$BaseBody.get_node("CollisionShape3D").disabled = false

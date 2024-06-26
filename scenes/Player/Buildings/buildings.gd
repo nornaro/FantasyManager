@@ -1,6 +1,5 @@
-extends Label
+extends HBoxContainer
 
-var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,10 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func increase(value):
-	score += value
-	_on_property_list_changed()
-
-func _on_property_list_changed() -> void:
-	text = score
-	pass # Replace with function body.
+func name_child():
+	tooltip_text = "Build " + name

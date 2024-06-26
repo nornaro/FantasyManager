@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqs03ltfoaab2"]
+
+[ext_resource type="Script" path="res://scenes/Player/mp_player.gd" id="1_j1nci"]
+[ext_resource type="PackedScene" uid="uid://cb1rnlrmub2cv" path="res://scenes/Player/buildings_spot_collector.tscn" id="2_v7smd"]
+[ext_resource type="Script" path="res://scenes/Player/TopDownCamera3D.gd" id="3_jtjxe"]
+[ext_resource type="Script" path="res://scenes/Player/ray_cast_3d.gd" id="4_nbkm5"]
+[ext_resource type="Script" path="res://scenes/Player/multiplayer_synchronizer.gd" id="5_knb7x"]
+[ext_resource type="Script" path="res://scenes/Player/label.gd" id="5_umtrc"]
+[ext_resource type="Script" path="res://scenes/Player/select.gd" id="6_0iyco"]
+[ext_resource type="Script" path="res://scenes/Player/UI/scroll.gd" id="8_4if1o"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wldiv"]
+properties/0/path = NodePath(".:player_id")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath("MultiplayerSynchronizer:score")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_j1nci")
+
+[node name="BuildingsSpotCollector" parent="." instance=ExtResource("2_v7smd")]
+
+[node name="TopDownCamera3D" type="Camera3D" parent="." groups=["camera"]]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 500, 0)
+script = ExtResource("3_jtjxe")
+
+[node name="RayCast3D" type="RayCast3D" parent="TopDownCamera3D" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, -250, -433.013)
+script = ExtResource("4_nbkm5")
+camera = NodePath("..")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+unique_name_in_owner = true
+replication_config = SubResource("SceneReplicationConfig_wldiv")
+script = ExtResource("5_knb7x")
+
+[node name="Label" type="Label" parent="." groups=["score"]]
+offset_top = 103.0
+offset_right = 40.0
+offset_bottom = 126.0
+script = ExtResource("5_umtrc")
+
+[node name="Select" type="Node3D" parent="."]
+script = ExtResource("6_0iyco")
+
+[node name="Scroll" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_4if1o")
+
+[connection signal="scroll" from="Scroll" to="TopDownCamera3D" method="_on_scroll_scroll"]

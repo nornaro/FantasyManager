@@ -1,45 +1,32 @@
 extends Control
 
 signal scroll(Vector2)
-var prev_vector: Vector2
-var scroll_vector: Vector2
+var prev_vector: Vector2 = Vector2()
+var scroll_vector: Vector2 = Vector2()
+var margin: int = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$L.size = Vector2(20,size.y)
-	$R.size = Vector2(20,size.y)
-	$U.size = Vector2(size.x,20)
-	$D.size = Vector2(size.x,20)
-	$L.position = Vector2(0,0)
-	$R.position = Vector2(size.x-10,0)
-	$U.position = Vector2(0,0)
-	$D.position = Vector2(0,size.y-10)
+	set_process(true)
 
 func _process(_delta: float) -> void:
-	if prev_vector == scroll_vector:
-		return
-	scroll.emit(scroll_vector)
-	#emit_signal("scroll", scroll_vector)
-	prev_vector = scroll_vector
-
-func _on_l_mouse_entered() -> void:
-	scroll_vector += Vector2.DOWN
-func _on_l_mouse_exited() -> void:
-	scroll_vector -= Vector2.DOWN
-func _on_r_mouse_entered() -> void:
-	scroll_vector += Vector2.UP
-func _on_r_mouse_exited() -> void:
-	scroll_vector -= Vector2.UP
-func _on_u_mouse_entered() -> void:
-	scroll_vector += Vector2.LEFT
-func _on_u_mouse_exited() -> void:
-	scroll_vector -= Vector2.LEFT
-func _on_d_mouse_entered() -> void:
-	scroll_vector += Vector2.RIGHT
-func _on_d_mouse_exited() -> void:
-	scroll_vector -= Vector2.RIGHT
-
-
-
-
-	pass # Replace with function body.
+	var viewport_size = get_viewport().get_visible_rect().size
+	var mouse_position = get_viewport().get_mouse_position()
+	scroll_vector = Vector2()
+	
+	# Check horizontal edges and corners
+	if mouse_position.x <= margin:
+		scroll_vector.y += 1 # Left is Up
+	if mouse_position.x >= viewport_size.x - margin:
+		scroll_vector.y -= 1 # Right is Down
+	
+	# Check vertical edges and corners
+	if mouse_position.y <= margin:
+		scroll_vector.x -= 1 # Up is Right
+	if mouse_position.y >= viewport_size.y - margin:
+		scroll_vector.x += 1 # Down is Left
+	
+	# Emit signal if there is a change in scroll_vector
+	if prev_vector != scroll_vector:
+		emit_signal("scroll", scroll_vector)
+		prev_vector = scroll_vector

@@ -1,8 +1,11 @@
 extends Node3D
-#
-@export var server_address: String = "127.0.0.1"
-@export var server_port: int = 12345
-@export var score = {}
+
+@export var player_id := 1:
+	set(id):
+		player_id = id
+		%MultiplayerSynchronizer.set_multiplayer_authority(id, true)
+		GlobalMultiplayerSynchronizer.set_multiplayer_authority(id, true)
+
 #
 #func _ready():
 	#var peer := ENetMultiplayerPeer.new()
@@ -20,15 +23,7 @@ extends Node3D
 	#print(Autoload.player_labels)
 	#
 	#
-	
-	
-	
-	
-	
-	
-	
-	
-	#print("Client connected")
+
 	#score = multiplayer.get_unique_id()
 #	multiplayer.set_multiplayer_authority(multiplayer.get_unique_id())
 #

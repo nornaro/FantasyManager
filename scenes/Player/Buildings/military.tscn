@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckwcaiv0cqv64"]
+
+[ext_resource type="Texture2D" uid="uid://cun73k8jdmr4e" path="res://addons/proton_scatter/icons/add.svg" id="1_rr8un"]
+[ext_resource type="Script" path="res://scenes/Player/buildbutton.gd" id="2_to6ya"]
+
+[node name="Military" type="HBoxContainer"]
+
+[node name="Archery" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_rr8un")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_to6ya")
+
+[node name="Barracks" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_rr8un")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_to6ya")
+
+[node name="Blacksmith" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_rr8un")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_to6ya")
+
+[node name="Castle" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_rr8un")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_to6ya")
+
+[node name="Curch" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_rr8un")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_to6ya")
+
+[node name="Tavern" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_rr8un")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_to6ya")
+
+[node name="Tower" type="Button" parent="."]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+tooltip_text = "TEST"
+icon = ExtResource("1_rr8un")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_to6ya")
+
+[connection signal="pressed" from="Archery" to="Archery" method="_on_pressed"]
+[connection signal="pressed" from="Barracks" to="Barracks" method="_on_pressed"]
+[connection signal="pressed" from="Blacksmith" to="Blacksmith" method="_on_pressed"]
+[connection signal="pressed" from="Castle" to="Castle" method="_on_pressed"]
+[connection signal="pressed" from="Curch" to="Curch" method="_on_pressed"]
+[connection signal="pressed" from="Tavern" to="Tavern" method="_on_pressed"]
+[connection signal="pressed" from="Tower" to="Tower" method="_on_pressed"]

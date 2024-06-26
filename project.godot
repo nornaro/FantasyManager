@@ -20,17 +20,19 @@ config/description="A multiplayer implementation of the classical bomberman game
 One of the players should press 'host', while the other
 should type in his address and press 'play'."
 config/tags=PackedStringArray("3d", "network", "prealpha")
-run/main_scene="res://lobby.tscn"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://FantasyManagger.png"
 
 [autoload]
 
-gamestate="*res://gamestate.gd"
 Autoload="*res://autoload.gd"
+NetworkMgr="*res://network_mgr.gd"
+GlobalMultiplayerSynchronizer="*res://scenes/Player/multiplayer_synchronizer.gd"
 
 [display]
 
+window/size/initial_position_type=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -41,6 +43,11 @@ project/assembly_name="Multiplayer Bomber"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/csgtomesh/plugin.cfg", "res://addons/proton_scatter/plugin.cfg")
+
+[global_group]
+
+RollableMenu=""
+Buildings=""
 
 [input]
 
@@ -207,6 +214,11 @@ r_reset={
 9={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":57,"key_label":0,"unicode":57,"location":0,"echo":false,"script":null)
+]
+}
+MenuLoop={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194308,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 
