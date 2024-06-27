@@ -65,7 +65,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p4ln6")
 
-[sub_resource type="Resource" id="Resource_m1r13"]
+[sub_resource type="Resource" id="Resource_nx5xy"]
 script = ExtResource("9_c8o5y")
 spacing = Vector3(10, 10, 10)
 enabled = true
@@ -74,7 +74,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_jerbf"]
+[sub_resource type="Resource" id="Resource_oje5h"]
 script = ExtResource("10_cahxk")
 position = Vector3(10, 0, 10)
 rotation = Vector3(5, 30, 5)
@@ -85,7 +85,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_0lho6"]
+[sub_resource type="Resource" id="Resource_qlg8y"]
 script = ExtResource("11_mupbv")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
@@ -101,11 +101,11 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_dmhkh"]
+[sub_resource type="Resource" id="Resource_y1xbd"]
 script = ExtResource("7_72ea5")
-stack = Array[ExtResource("8_yc8xw")]([SubResource("Resource_m1r13"), SubResource("Resource_jerbf"), SubResource("Resource_0lho6")])
+stack = Array[ExtResource("8_yc8xw")]([SubResource("Resource_nx5xy"), SubResource("Resource_oje5h"), SubResource("Resource_qlg8y")])
 
-[sub_resource type="Resource" id="Resource_hpdmk"]
+[sub_resource type="Resource" id="Resource_qy2td"]
 script = ExtResource("9_c8o5y")
 spacing = Vector3(10, 10, 10)
 enabled = true
@@ -114,7 +114,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_5oovc"]
+[sub_resource type="Resource" id="Resource_b3um8"]
 script = ExtResource("10_cahxk")
 position = Vector3(10, 0, 10)
 rotation = Vector3(5, 30, 5)
@@ -125,7 +125,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_scoe0"]
+[sub_resource type="Resource" id="Resource_tmh5j"]
 script = ExtResource("11_mupbv")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
@@ -141,11 +141,11 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_yemmi"]
+[sub_resource type="Resource" id="Resource_6dl4h"]
 script = ExtResource("7_72ea5")
-stack = Array[ExtResource("8_yc8xw")]([SubResource("Resource_hpdmk"), SubResource("Resource_5oovc"), SubResource("Resource_scoe0")])
+stack = Array[ExtResource("8_yc8xw")]([SubResource("Resource_qy2td"), SubResource("Resource_b3um8"), SubResource("Resource_tmh5j")])
 
-[sub_resource type="Resource" id="Resource_n4kes"]
+[sub_resource type="Resource" id="Resource_sb0i1"]
 script = ExtResource("9_c8o5y")
 spacing = Vector3(30, 1, 30)
 enabled = true
@@ -154,7 +154,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_kee38"]
+[sub_resource type="Resource" id="Resource_jnyeg"]
 script = ExtResource("10_cahxk")
 position = Vector3(10, 0, 10)
 rotation = Vector3(5, 60, 5)
@@ -165,7 +165,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_t5ifa"]
+[sub_resource type="Resource" id="Resource_784th"]
 script = ExtResource("11_mupbv")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 10.0
@@ -181,9 +181,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_wultc"]
+[sub_resource type="Resource" id="Resource_uciex"]
 script = ExtResource("7_72ea5")
-stack = Array[ExtResource("8_yc8xw")]([SubResource("Resource_n4kes"), SubResource("Resource_kee38"), SubResource("Resource_t5ifa")])
+stack = Array[ExtResource("8_yc8xw")]([SubResource("Resource_sb0i1"), SubResource("Resource_jnyeg"), SubResource("Resource_784th")])
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_ytayd")
@@ -221,17 +221,17 @@ dbg_disable_thread = true
 [node name="ForestA" parent="Scatter" instance=ExtResource("5_x8u6a")]
 keep_static_colliders = false
 force_rebuild_on_load = true
-modifier_stack = SubResource("Resource_dmhkh")
+modifier_stack = SubResource("Resource_y1xbd")
 
 [node name="ForestB" parent="Scatter" instance=ExtResource("11_houdl")]
 keep_static_colliders = false
 force_rebuild_on_load = true
-modifier_stack = SubResource("Resource_yemmi")
+modifier_stack = SubResource("Resource_6dl4h")
 
 [node name="Stones" parent="Scatter" instance=ExtResource("13_3stk6")]
 keep_static_colliders = false
 force_rebuild_on_load = true
-modifier_stack = SubResource("Resource_wultc")
+modifier_stack = SubResource("Resource_uciex")
 
 [node name="Score" type="HBoxContainer" parent="." groups=["score"]]
 unique_name_in_owner = true

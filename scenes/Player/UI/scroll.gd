@@ -1,6 +1,5 @@
 extends Control
 
-signal scroll(Vector2)
 var prev_vector: Vector2 = Vector2()
 var scroll_vector: Vector2 = Vector2()
 var margin: int = 5

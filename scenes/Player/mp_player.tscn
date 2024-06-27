@@ -54,5 +54,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_4if1o")
-
-[connection signal="scroll" from="Scroll" to="TopDownCamera3D" method="_on_scroll_scroll"]

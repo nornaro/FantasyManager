@@ -29,6 +29,7 @@ config/icon="res://FantasyManagger.png"
 Autoload="*res://autoload.gd"
 NetworkMgr="*res://network_mgr.gd"
 GlobalMultiplayerSynchronizer="*res://scenes/Player/multiplayer_synchronizer.gd"
+GDSync="*res://addons/GD-Sync/MultiplayerClient.gd"
 
 [display]
 
@@ -42,7 +43,7 @@ project/assembly_name="Multiplayer Bomber"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/csgtomesh/plugin.cfg", "res://addons/proton_scatter/plugin.cfg")
+enabled=PackedStringArray("res://addons/GD-Sync/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/csgtomesh/plugin.cfg", "res://addons/proton_scatter/plugin.cfg")
 
 [global_group]
 

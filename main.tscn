@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bixue4nofvcvp"]
+[gd_scene load_steps=17 format=3 uid="uid://bixue4nofvcvp"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_6nmwn"]
 [ext_resource type="PackedScene" uid="uid://by3f5o7dyoqx4" path="res://world.tscn" id="1_m45k2"]
@@ -6,10 +6,16 @@
 [ext_resource type="Script" path="res://players.gd" id="3_ttsjy"]
 [ext_resource type="PackedScene" uid="uid://cg2a77ksf7ulj" path="res://scenes/UI/info_bar.tscn" id="5_4w4jf"]
 [ext_resource type="Script" path="res://network.gd" id="6_cehws"]
-[ext_resource type="Texture2D" uid="uid://ctury1n323iid" path="res://icon.png" id="7_ll8du"]
+[ext_resource type="Script" path="res://steam.gd" id="7_g4f8c"]
+[ext_resource type="Script" path="res://enet.gd" id="7_k725v"]
 [ext_resource type="Texture2D" uid="uid://b6df3s07m2c47" path="res://GDSync.png" id="7_qvkat"]
 [ext_resource type="Texture2D" uid="uid://bphqhca08nc0v" path="res://Steam.png" id="8_8unw1"]
+[ext_resource type="Texture2D" uid="uid://cunx871fhd26u" path="res://godot.png" id="8_q88i6"]
 [ext_resource type="Texture2D" uid="uid://ctanmg7dnvwju" path="res://Nakama.png" id="9_j4c50"]
+[ext_resource type="Script" path="res://nakama.gd" id="9_jgekt"]
+[ext_resource type="Script" path="res://gds.gd" id="10_aefkx"]
+[ext_resource type="Script" path="res://eos.gd" id="11_hen7s"]
+[ext_resource type="Texture2D" uid="uid://dk6d26x05n6qp" path="res://EOSG.png" id="11_nfn0e"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_6nmwn")
@@ -38,7 +44,27 @@ anchor_right = 1.0
 grow_horizontal = 2
 script = ExtResource("6_cehws")
 
-[node name="MPHUD" type="Panel" parent="Network"]
+[node name="Enet" type="Node" parent="Network"]
+unique_name_in_owner = true
+script = ExtResource("7_k725v")
+
+[node name="Steam" type="Node" parent="Network"]
+unique_name_in_owner = true
+script = ExtResource("7_g4f8c")
+
+[node name="Nakama" type="Node" parent="Network"]
+unique_name_in_owner = true
+script = ExtResource("9_jgekt")
+
+[node name="GDS" type="Node" parent="Network"]
+unique_name_in_owner = true
+script = ExtResource("10_aefkx")
+
+[node name="EOS" type="Node" parent="Network"]
+unique_name_in_owner = true
+script = ExtResource("11_hen7s")
+
+[node name="MPHUD" type="Panel" parent="Network" groups=["MPHUD"]]
 unique_name_in_owner = true
 light_mask = 2
 visibility_layer = 2
@@ -74,12 +100,17 @@ offset_bottom = 648.0
 unique_name_in_owner = true
 layout_mode = 2
 current_tab = 0
+tab_alignment = 1
+scrolling_enabled = false
 tab_count = 5
-tab_0/icon = ExtResource("7_ll8du")
+tab_0/icon = ExtResource("8_q88i6")
 tab_1/icon = ExtResource("8_8unw1")
 tab_2/icon = ExtResource("9_j4c50")
+tab_2/disabled = true
 tab_3/icon = ExtResource("7_qvkat")
-tab_4/title = "Netfox"
+tab_3/disabled = true
+tab_4/icon = ExtResource("11_nfn0e")
+tab_4/disabled = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Network/MPHUD/HSplitContainer/VBoxContainer2/Control/VBoxContainer"]
 layout_mode = 2
@@ -120,11 +151,19 @@ text = "Host"
 layout_mode = 2
 text = "Join"
 
+[node name="Search" type="TextEdit" parent="Network/MPHUD/HSplitContainer/VBoxContainer2/Control/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+placeholder_text = "Name/ID Search"
+context_menu_enabled = false
+scroll_fit_content_height = true
+
 [node name="Control" type="Control" parent="Network/MPHUD/HSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Lobby" type="Panel" parent="Network/MPHUD/HSplitContainer/Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -134,7 +173,7 @@ offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LobbyOwner" type="ItemList" parent="Network/MPHUD/HSplitContainer/Control/Lobby"]
+[node name="Lobbyinfo" type="ItemList" parent="Network/MPHUD/HSplitContainer/Control/Lobby"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 1
 anchors_preset = 9
@@ -142,6 +181,7 @@ anchor_bottom = 1.0
 offset_right = 150.0
 grow_vertical = 2
 size_flags_horizontal = 3
+allow_search = false
 
 [node name="LobbyName" type="ItemList" parent="Network/MPHUD/HSplitContainer/Control/Lobby"]
 custom_minimum_size = Vector2(450, 0)
@@ -174,5 +214,6 @@ offset_right = 840.0
 offset_bottom = 588.0
 size_flags_horizontal = 3
 
+[connection signal="tab_changed" from="Network/MPHUD/HSplitContainer/VBoxContainer2/Control/VBoxContainer/TabBar" to="Network" method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="Network/MPHUD/HSplitContainer/VBoxContainer2/Control/VBoxContainer/HBoxContainer/Panel/VBoxContainer/Host" to="Network" method="_on_host_pressed"]
 [connection signal="pressed" from="Network/MPHUD/HSplitContainer/VBoxContainer2/Control/VBoxContainer/HBoxContainer/Panel/VBoxContainer/Join" to="Network" method="_on_join_pressed"]

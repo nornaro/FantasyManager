@@ -24,7 +24,7 @@ func _ready() -> void:
 		#if Input.is_action_just_pressed(str(num)):
 			#get_child(num)._on_pressed()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	var build_menu = get_tree().get_nodes_in_group("Buildings")
 	if Input.is_action_just_pressed("MenuLoop"):
 		current_menu_index += 1
